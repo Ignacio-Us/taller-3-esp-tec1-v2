@@ -51,7 +51,7 @@ export default {
         let usuario = usuarios.find(user => user.email === this.usuario && user.password.toString() === this.password);
 
         if (usuario) {
-          localStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
+          sessionStorage.setItem("usuarioLogeado", JSON.stringify(usuario));
           this.$router.push('/');
         } else {
           this.error = true;

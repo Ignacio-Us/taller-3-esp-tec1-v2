@@ -1,0 +1,38 @@
+{
+    "Usuarios": [
+        {   "id": 1, 
+            "nombre":"pepe",
+            "email": "pepe@gmail.com",
+            "password": 12345
+            
+
+        },
+        {   "id": 2, 
+            "nombre":"juan",
+            "email": "juan@gmail.com",
+            "password": 23456
+
+        }
+
+    ],
+
+
+    "Puntaje": [
+        {
+        "id": 1,
+        "putnaje":50, 
+        "nombreUsuario": "juan"
+        },
+        {
+        "id": 2,
+        "putnaje":65, 
+        "nombreUsuario": "juan"
+        },
+        {
+        "id": 1,
+        "putnaje":25, 
+        "nombreUsuario": "pepe"
+        }
+    ]
+
+}
