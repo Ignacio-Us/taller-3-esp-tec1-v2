@@ -14,6 +14,7 @@
 <script setup>
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 import Navbar from '../components/Navbar.vue';
 import Phaser from 'phaser';
 import backgroundImage from '../assets/game assets/background_glacial_mountains.png';
@@ -23,6 +24,8 @@ import coinSound from '../assets/game assets/brackeys_platformer_assets/sounds/c
 import character1Image from '../assets/game assets/free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_Walk_6.png';
 import character2Image from '../assets/game assets/free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/Owlet_Monster_Walk_6.png';
 import character3Image from '../assets/game assets/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Dude_Monster_Walk_6.png';
+
+const router = useRouter();
 
 const backgroundMusicPath = sessionStorage.getItem('musica');
 const player1 = sessionStorage.getItem('player1');
@@ -291,6 +294,10 @@ const config = {
         winnerText.setOrigin(0.5, 0.5);
 
         saveScore();
+
+        setTimeout(() => {
+          router.push({ path: '/score' })
+        }, 15000);
       }
     }
   }
