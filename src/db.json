@@ -43,6 +43,16 @@
       "id": "8989",
       "nombreUsuario": "juan",
       "puntaje": 60
+    },
+    {
+      "id": "e2cd",
+      "nombreUsuario": "pepe",
+      "puntaje": 70
+    },
+    {
+      "id": "fa14",
+      "nombreUsuario": "juan",
+      "puntaje": 70
     }
   ]
 }

@@ -5,7 +5,7 @@
 
             
             <!--Player 1-->
-            <h5 v-if="showPlayerOne" class="text-white">Jugador 1</h5>
+            <h5 v-if="showPlayerOne" class="text-white font-custom fs-3">{{ showPlayerOne.nombre }}</h5>
         </div>
 
         <!--Paginas-->
@@ -18,7 +18,7 @@
             <RouterLink  to= "/login2" v-if="!showPlayerTwo" class="btn btn-light fs-5 font-custom">Iniciar Player 2</RouterLink>
             
             <!--Player 2-->
-            <h5 v-if="showPlayerTwo" class="text-white">Jugador 2</h5>
+            <h5 v-if="showPlayerTwo" class="text-white font-custom fs-3">{{ showPlayerTwo.nombre }}</h5>
         </div>
     </nav>
 </template>
@@ -50,6 +50,6 @@
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
-const showPlayerOne = ref(false);
-const showPlayerTwo = ref(false);
+const showPlayerOne = JSON.parse(sessionStorage.getItem('usuarioLogeado')); 
+const showPlayerTwo = JSON.parse(sessionStorage.getItem('usuario2Logeado')); 
 </script>

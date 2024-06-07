@@ -17,7 +17,7 @@
 
                 <div v-for="puntaje in puntajes" :key="puntaje.id" class="row mt-3">
 
-                    <div class="col-md-3 offset-md-3 border-custom">
+                    <div class="col-md-3 offset-md-3 border-custom ">
                         {{ puntaje.nombreUsuario }}
                     </div>
 
