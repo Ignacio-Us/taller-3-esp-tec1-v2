@@ -2,11 +2,22 @@
     <div>
         <Navbar />
         <header class="p-5">
-            <h1 class="text-white text-center font-custom">PickCoin</h1>
+            <h1 class="text-warning text-center font-custom">PickCoin</h1>
         </header>
         <section class="container mt-5 mb-5">
             <div class="col-10 justify-content-center align-items-center m-auto">
                 <div class="col-md-12">
+
+                    <h2 class="text-white font-custom">Objetivo:</h2>
+
+                    <div class="col-md-12 fs-4 p-3 ml mb-3">
+                        <p class="text-white font-custom align-justify">
+                            Recoge todas las monedas que aparezcan en el escenario. Las monedas se generarán de forma
+                            aleatoria en diferentes partes del escenario. El jugador que recoja más monedas será el
+                            ganador.
+                        </p>
+                    </div>
+
                     <h2 class="text-white font-custom">Como se juega:</h2>
                     <!-- Descripcion del flujo de juego-->
                     <div class="col-md-12 fs-4 p-3 ml mb-3">
@@ -79,7 +90,6 @@
 </template>
 
 <style scoped>
-
 .ml {
     margin-left: 24px;
 }
@@ -89,7 +99,7 @@
     height: 85%;
 }
 
-.align-justify{
+.align-justify {
     text-align: justify;
 }
 </style>
