@@ -11,7 +11,7 @@
         <div class="col-md-6 text-center">
             <RouterLink to="/" class="btn fs-4 text-white font-custom">Home</RouterLink>
             <RouterLink to="/selection" class="btn fs-4 text-white font-custom">Game</RouterLink>
-            <button class="btn fs-4 text-white">Scores</button>
+            <RouterLink to="/score" class="btn fs-4 text-white  font-custom">Scores</RouterLink>
         </div>
         <div class="col-md-2 p-2 ml-2">
             <button v-if="!showPlayerTwo" @click="showPlayerTwo = !showPlayerTwo" class="btn btn-light fs-5">Iniciar Player 2</button>

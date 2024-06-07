@@ -20,17 +20,17 @@
     "Puntaje": [
         {
         "id": 1,
-        "putnaje":50, 
+        "puntaje":50, 
         "nombreUsuario": "juan"
         },
         {
         "id": 2,
-        "putnaje":65, 
+        "puntaje":65, 
         "nombreUsuario": "juan"
         },
         {
-        "id": 1,
-        "putnaje":25, 
+        "id": 3,
+        "puntaje":25, 
         "nombreUsuario": "pepe"
         }
     ]
