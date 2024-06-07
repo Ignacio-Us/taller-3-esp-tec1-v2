@@ -1,7 +1,8 @@
 <template>
     <nav class="navbar navbar-expand-lg shadow-lg bg-custom">
         <div class="col-md-3 p-2 ml-1">
-            <button v-if="!showPlayerOne" @click="showPlayerOne = !showPlayerOne" class="btn btn-light fs-5">Iniciar Player 1</button>
+            <RouterLink to="/login" v-if="!showPlayerOne" class="btn btn-light fs-5 font-custom">Iniciar Player 1</RouterLink>
+
             
             <!--Player 1-->
             <h5 v-if="showPlayerOne" class="text-white">Jugador 1</h5>
@@ -14,13 +15,11 @@
             <RouterLink to="/score" class="btn fs-4 text-white  font-custom">Scores</RouterLink>
         </div>
         <div class="col-md-2 p-2 ml-2">
-            <button v-if="!showPlayerTwo" @click="showPlayerTwo = !showPlayerTwo" class="btn btn-light fs-5">Iniciar Player 2</button>
+            <RouterLink  to= "/login2" v-if="!showPlayerTwo" class="btn btn-light fs-5 font-custom">Iniciar Player 2</RouterLink>
             
             <!--Player 2-->
             <h5 v-if="showPlayerTwo" class="text-white">Jugador 2</h5>
         </div>
-
-
     </nav>
 </template>
 
@@ -45,15 +44,6 @@
     border-radius: 10px;
 }
 
-button {
-    font-family: "Planes_ValMore", sans-serif;
-    font-size: small;
-}
-
-.font-custom {
-    font-family: "Planes_ValMore", sans-serif;
-    font-size: small;
-}
 </style>
 
 <script setup>

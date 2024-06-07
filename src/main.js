@@ -10,13 +10,14 @@ app.use(router);
 app.mount("#app");
 
 router.beforeEach((to, from, next) => {
-    const loggedIn = sessionStorage.getItem('usuarioLogeado'); // Verifica si hay un usuario logeado
-
-    if (to.matched.some(record => record.meta.requiresAuth) && !loggedIn) {
-        // Si la ruta requiere autenticación y el usuario no está logeado, redirige a la página de inicio de sesión
-        next('/login');
-    } else {
-        // De lo contrario, permite el acceso a la ruta
-        next();
-    }
+    const loggedIn1 = sessionStorage.getItem('usuarioLogeado'); // Verifica si hay un usuario logeado
+    const loggedIn2 = sessionStorage.getItem('usuario2Logeado');
+    
+   // Verificar si la ruta requiere autenticación y que ambos usuarios estén logeados
+   if (to.matched.some(record => record.meta.requiresAuth) && (!loggedIn1 || !loggedIn2)) {
+    next('/login'); // Redirigir a la página de inicio de sesión si uno o ambos usuarios no están logeados
+} else {
+    next(); // Permitir el acceso a la ruta si ambos usuarios están logeados
+}
 });
+
