@@ -1,7 +1,37 @@
-# Vue 3 + Vite
+# PickCoin
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Como ejecutar el proyecto
 
-## Recommended IDE Setup
+## 1. Abrir una terminal en VSC
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+Ve a la pestana "Terminal" en la parte superior y selecciona “New Terminal” o simplemente presiona "Ctrl + shift + ñ" para abrir la terminal integrada.
+
+## 2. Instalar dependencias del proyecto
+
+Ejecuta el siguiente comando para instalar todas las dependencias listadas en package.json 
+
+```
+npm install
+```
+
+## 3. Iniciar json-server en la terminal
+
+Dirigete a la carpeta src de la siguiente manera:
+
+```
+cd src
+```
+
+Y ejecuta el siguiente comando para iniciar json-server
+
+```
+json-server --watch db.json
+```
+
+## 4. Abrir otra terminal para live-server
+
+Ahora nuevamene ve a la pestana "Terminal" en la parte superior y selecciona “New Terminal” o simplemente presiona "Ctrl + shift + ñ" para una nueva terminal integrada y ejecuta el siguiente comando para iniciar live-server
+
+```
+npm run dev
+```
