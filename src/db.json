@@ -1,13 +1,13 @@
 {
   "Usuarios": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "pepe",
       "email": "pepe@gmail.com",
       "password": 12345
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "juan",
       "email": "juan@gmail.com",
       "password": 23456
@@ -15,17 +15,17 @@
   ],
   "Puntaje": [
     {
-      "id": 1,
+      "id": "1",
       "puntaje": 50,
       "nombreUsuario": "juan"
     },
     {
-      "id": 2,
+      "id": "2",
       "puntaje": 65,
       "nombreUsuario": "juan"
     },
     {
-      "id": 3,
+      "id": "3",
       "puntaje": 25,
       "nombreUsuario": "pepe"
     },
@@ -33,6 +33,16 @@
       "id": "a30b",
       "nombreUsuario": "pepe",
       "puntaje": 140
+    },
+    {
+      "id": "430e",
+      "nombreUsuario": "pepe",
+      "puntaje": 90
+    },
+    {
+      "id": "8989",
+      "nombreUsuario": "juan",
+      "puntaje": 60
     }
   ]
 }

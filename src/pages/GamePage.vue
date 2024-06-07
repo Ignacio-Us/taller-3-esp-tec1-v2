@@ -270,7 +270,7 @@ const config = {
           this.backgroundMusic.pause();
         }
         timerText.setText('Game Over');
-        saveScore(score1.value);
+        saveScore();
       }
     }
   }
@@ -321,17 +321,23 @@ onMounted(() => {
   });
 });
 
-async function saveScore( puntaje) {
+async function saveScore() {
 
   try {
   const jugador1 = JSON.parse(sessionStorage.getItem("usuarioLogeado"));
-  console.log(jugador1);
+  const jugador2 = JSON.parse(sessionStorage.getItem("usuario2Logeado"));
+
   const datosPuntaje = {
     nombreUsuario: jugador1.nombre, 
     puntaje:score1.value
   }
-
+  const datosPuntaje2 = {
+    nombreUsuario: jugador2.nombre, 
+    puntaje:score2.value
+  }
+  
   await axios.post("http://localhost:3000/Puntaje", datosPuntaje)
+  await axios.post("http://localhost:3000/Puntaje", datosPuntaje2)
 
   }catch(error) {
     console.error('Error al guardar el puntaje' ,error);
