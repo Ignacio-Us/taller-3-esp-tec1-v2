@@ -7,7 +7,7 @@
         <!-- Login Form:    prevent: previene que no se carga la pagina pero igual se obtienen los datos-->
         <form v-on:submit.prevent="login">
           <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario" v-model="usuario">
-          <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password" v-model="password">
+          <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password" v-model="password">
           <input type="submit" class="fadeIn fourth" value="Login">
         </form>
 
@@ -118,6 +118,20 @@ input[type=submit]:active {
 }
 
 input[type=text] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 5px 0;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+input[type="password"] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
