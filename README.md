@@ -1,5 +1,10 @@
 # PickCoin
 
+## Integrantes
+
+- Camilo Rojas
+- Ignacio Uribe
+
 # Como ejecutar el proyecto
 
 ## 1. Abrir una terminal en VSC
