@@ -12,6 +12,7 @@
 </style>
 
 <script setup>
+import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import Navbar from '../components/Navbar.vue';
 import Phaser from 'phaser';
@@ -269,6 +270,7 @@ const config = {
           this.backgroundMusic.pause();
         }
         timerText.setText('Game Over');
+        saveScore(score1.value);
       }
     }
   }
@@ -318,4 +320,22 @@ onMounted(() => {
     parent: gameContainer.value,
   });
 });
+
+async function saveScore( puntaje) {
+
+  try {
+  const jugador1 = JSON.parse(sessionStorage.getItem("usuarioLogeado"));
+  console.log(jugador1);
+  const datosPuntaje = {
+    nombreUsuario: jugador1.nombre, 
+    puntaje:score1.value
+  }
+
+  await axios.post("http://localhost:3000/Puntaje", datosPuntaje)
+
+  }catch(error) {
+    console.error('Error al guardar el puntaje' ,error);
+  }
+
+}
 </script>
