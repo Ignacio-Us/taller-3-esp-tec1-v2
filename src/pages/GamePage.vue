@@ -28,6 +28,9 @@ const backgroundMusicPath = sessionStorage.getItem('musica');
 const player1 = sessionStorage.getItem('player1');
 const player2 = sessionStorage.getItem('player2');
 
+const jugador1 = JSON.parse(sessionStorage.getItem("usuarioLogeado"));
+const jugador2 = JSON.parse(sessionStorage.getItem("usuario2Logeado"));
+
 
 const playerSkin = {
   'Pink_Monster': character1Image,
@@ -270,6 +273,23 @@ const config = {
           this.backgroundMusic.pause();
         }
         timerText.setText('Game Over');
+
+        let winnerMessage;
+        if (score1.value > score2.value) {
+          winnerMessage = `${jugador1.nombre} Win!`;
+        } else if (score2.value > score1.value) {
+          winnerMessage = `${jugador2.nombre} Win!`;
+        } else {
+          winnerMessage = 'Es un Empate!';
+        }
+
+        const winnerText = this.add.text(400, 300, winnerMessage, {
+          fontSize: '36px',
+          fill: '#FFF',
+          backgroundColor: '#000'
+        });
+        winnerText.setOrigin(0.5, 0.5);
+
         saveScore();
       }
     }
@@ -278,8 +298,8 @@ const config = {
 
 function addRandomCoin(scene, coins, platforms) {
   // Número máximo de intentos para colocar la moneda
-  const maxAttempts = 10; 
-  
+  const maxAttempts = 10;
+
   let placed = false;
 
   for (let i = 0; i < maxAttempts; i++) {
@@ -324,23 +344,20 @@ onMounted(() => {
 async function saveScore() {
 
   try {
-  const jugador1 = JSON.parse(sessionStorage.getItem("usuarioLogeado"));
-  const jugador2 = JSON.parse(sessionStorage.getItem("usuario2Logeado"));
+    const datosPuntaje = {
+      nombreUsuario: jugador1.nombre,
+      puntaje: score1.value
+    }
+    const datosPuntaje2 = {
+      nombreUsuario: jugador2.nombre,
+      puntaje: score2.value
+    }
 
-  const datosPuntaje = {
-    nombreUsuario: jugador1.nombre, 
-    puntaje:score1.value
-  }
-  const datosPuntaje2 = {
-    nombreUsuario: jugador2.nombre, 
-    puntaje:score2.value
-  }
-  
-  await axios.post("http://localhost:3000/Puntaje", datosPuntaje)
-  await axios.post("http://localhost:3000/Puntaje", datosPuntaje2)
+    await axios.post("http://localhost:3000/Puntaje", datosPuntaje)
+    await axios.post("http://localhost:3000/Puntaje", datosPuntaje2)
 
-  }catch(error) {
-    console.error('Error al guardar el puntaje' ,error);
+  } catch (error) {
+    console.error('Error al guardar el puntaje', error);
   }
 
 }
