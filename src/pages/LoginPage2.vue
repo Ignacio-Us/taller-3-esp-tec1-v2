@@ -50,11 +50,11 @@ export default {
 
       try {
         // Cargar el archivo JSON
-        let response = await axios.get(`http://localhost:3000/Usuarios`);
+        let response = await axios.get(`http://localhost:8081/api/usuarios`);
         let usuarios = response.data;
 
         // Verificar las credenciales
-        let usuario = usuarios.find(user => user.email === this.usuario && user.password.toString() === this.password);
+        let usuario = usuarios.find(user => user.email === this.usuario && user.contrasena.toString() === this.password);
 
         if (usuario) {
           sessionStorage.setItem("usuario2Logeado", JSON.stringify(usuario));
