@@ -354,16 +354,17 @@ async function saveScore() {
 
   try {
     const datosPuntaje = {
-      nombreUsuario: jugador1.nombre,
-      puntaje: score1.value
+      
+      puntaje: score1.value,
+      idUsuario: jugador1.id
     }
     const datosPuntaje2 = {
-      nombreUsuario: jugador2.nombre,
-      puntaje: score2.value
+      puntaje: score2.value,
+      idUsuario: jugador2.id
     }
 
-    await axios.post("http://localhost:3000/Puntaje", datosPuntaje)
-    await axios.post("http://localhost:3000/Puntaje", datosPuntaje2)
+    await axios.post("http://localhost:8081/api/puntajes", datosPuntaje)
+    await axios.post("http://localhost:8081/api/puntajes", datosPuntaje2)
 
   } catch (error) {
     console.error('Error al guardar el puntaje', error);
