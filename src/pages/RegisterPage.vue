@@ -50,7 +50,7 @@ export default {
 
       try {
         // Cargar el archivo JSON
-        let response = await axios.get(`http://localhost:3000/Usuarios`);
+        let response = await axios.get(`http://localhost:8081/api/usuarios`);
         let usuarios = response.data;
 
         // Verificar si el usuario o email ya existen
@@ -64,11 +64,11 @@ export default {
           let nuevoUsuario = {
             nombre: this.nombre,
             email: this.email,
-            password: parseInt(this.password, 10)
+            contrasena: parseInt(this.password, 10)
             
           };
 
-          await axios.post(`http://localhost:3000/Usuarios`, nuevoUsuario);
+          await axios.post(`http://localhost:8081/api/usuarios`, nuevoUsuario);
           this.$router.push('/login');
           this.success = true;
           this.success_mensaje = 'Usuario registrado con éxito.';
