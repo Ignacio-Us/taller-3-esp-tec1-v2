@@ -44,7 +44,7 @@ import axios from 'axios';
 const puntajes = ref([])
 
 try {
-    const response = await axios.get(`http://localhost:3000/Puntaje`);
+    const response = await axios.get(`http://localhost:8081/api/puntajes`);
     puntajes.value = response.data
 } catch (error) {
     console.error('Error al obtener los puntajes', error)
