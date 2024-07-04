@@ -3,6 +3,7 @@
     <div class="wrapper fadeInDown">
       <div id="formContent">
         <div class="fadeIn first">
+          <h2 class="title">Inicio de Sesión</h2>
         </div>
         <!-- Login Form:    prevent: previene que no se carga la pagina pero igual se obtienen los datos-->
         <form v-on:submit.prevent="login">
@@ -14,6 +15,12 @@
 
         <div class="alert alert-danger" role="alert" v-if="error">
           {{ error_mensaje }}
+        </div>
+
+        <div class="fadeIn fitfth" >
+        
+            <router-link to="/register">¿No tienes cuenta?</router-link>
+         
         </div>
       </div>
     </div>
@@ -94,6 +101,14 @@ body {
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
 }
+
+.title {
+  margin: 20px 0;
+  color: #cccccc;
+  font-size: 24px;
+  font-weight: 600;
+}
+
 
 input[type=submit] {
   background-color: #005521;

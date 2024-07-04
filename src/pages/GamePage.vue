@@ -184,6 +184,8 @@ const config = {
 
       this.physics.add.collider(coins, platforms);
 
+   
+
       // Interaccion Jugador 1 on la moneda
       this.physics.add.overlap(player1, coins, (player1, coin) => {
         coin.disableBody(true, true);

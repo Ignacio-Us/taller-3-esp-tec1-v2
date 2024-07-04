@@ -11,6 +11,18 @@
       "nombre": "juan",
       "email": "juan@gmail.com",
       "password": 23456
+    },
+    {
+      "id": "e1bb",
+      "nombre": "Camilo",
+      "email": "c.rojas22@gmail.com",
+      "password": 10112
+    },
+    {
+      "id": "ad3d",
+      "nombre": "NACHITO",
+      "email": "n.uribe12@gmail.com",
+      "password": 56789
     }
   ],
   "Puntaje": [
@@ -53,6 +65,86 @@
       "id": "fa14",
       "nombreUsuario": "juan",
       "puntaje": 70
+    },
+    {
+      "id": "a948",
+      "nombreUsuario": "pepe",
+      "puntaje": 100
+    },
+    {
+      "id": "5113",
+      "nombreUsuario": "juan",
+      "puntaje": 110
+    },
+    {
+      "id": "ef0c",
+      "nombreUsuario": "pepe",
+      "puntaje": 90
+    },
+    {
+      "id": "74a8",
+      "nombreUsuario": "juan",
+      "puntaje": 70
+    },
+    {
+      "id": "4f3d",
+      "nombreUsuario": "pepe",
+      "puntaje": 60
+    },
+    {
+      "id": "9832",
+      "nombreUsuario": "juan",
+      "puntaje": 0
+    },
+    {
+      "id": "efaa",
+      "nombreUsuario": "pepe",
+      "puntaje": 0
+    },
+    {
+      "id": "1077",
+      "nombreUsuario": "juan",
+      "puntaje": 0
+    },
+    {
+      "id": "1bd6",
+      "nombreUsuario": "pepe",
+      "puntaje": 110
+    },
+    {
+      "id": "1216",
+      "nombreUsuario": "juan",
+      "puntaje": 120
+    },
+    {
+      "id": "d1e6",
+      "nombreUsuario": "pepe",
+      "puntaje": 140
+    },
+    {
+      "id": "0c98",
+      "nombreUsuario": "juan",
+      "puntaje": 50
+    },
+    {
+      "id": "a5a1",
+      "nombreUsuario": "pepe",
+      "puntaje": 170
+    },
+    {
+      "id": "9162",
+      "nombreUsuario": "juan",
+      "puntaje": 80
+    },
+    {
+      "id": "55d4",
+      "nombreUsuario": "Camilo",
+      "puntaje": 100
+    },
+    {
+      "id": "083a",
+      "nombreUsuario": "juan",
+      "puntaje": 50
     }
   ]
 }
