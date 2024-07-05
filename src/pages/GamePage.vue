@@ -1,5 +1,12 @@
 <template>
   <Navbar />
+  <div v-if="showButtons" class="container mt-5">
+    <div class="text-center">
+      <button @click="reloadPage" class="btn text-white m-2" id="bg-custom">Volver a Jugar</button>
+      <RouterLink to="/selection" class="btn text-white m-2" id="bg-custom">Seleccionar personajes</RouterLink>
+      <RouterLink to="/score" class="btn text-white m-2" id="bg-custom">Ver Puntajes</RouterLink>
+    </div>
+  </div>
   <div class="border border-white border-3" id="game-container" ref="gameContainer"></div>
 </template>
 
@@ -9,12 +16,16 @@
   height: 605px;
   margin: 50px auto;
 }
+
+#bg-custom {
+  background-color: #1E5128;
+}
 </style>
 
 <script setup>
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { RouterLink } from 'vue-router';
 import Navbar from '../components/Navbar.vue';
 import Phaser from 'phaser';
 import backgroundImage from '../assets/game assets/background_glacial_mountains.png';
@@ -25,8 +36,6 @@ import character1Image from '../assets/game assets/free-pixel-art-tiny-hero-spri
 import character2Image from '../assets/game assets/free-pixel-art-tiny-hero-sprites/2 Owlet_Monster/Owlet_Monster_Walk_6.png';
 import character3Image from '../assets/game assets/free-pixel-art-tiny-hero-sprites/3 Dude_Monster/Dude_Monster_Walk_6.png';
 
-const router = useRouter();
-
 const backgroundMusicPath = sessionStorage.getItem('musica');
 const player1 = sessionStorage.getItem('player1');
 const player2 = sessionStorage.getItem('player2');
@@ -34,6 +43,7 @@ const player2 = sessionStorage.getItem('player2');
 const jugador1 = JSON.parse(sessionStorage.getItem("usuarioLogeado"));
 const jugador2 = JSON.parse(sessionStorage.getItem("usuario2Logeado"));
 
+const showButtons = ref(false);
 
 const playerSkin = {
   'Pink_Monster': character1Image,
@@ -50,6 +60,11 @@ const score2 = ref(0);
 const scoreTextP1 = ref('');
 const scoreTextP2 = ref('');
 
+const reloadPage = () => {
+  window.location.reload();
+}
+
+// Logica del juego
 const config = {
   type: Phaser.AUTO,
   width: 800,
@@ -184,7 +199,7 @@ const config = {
 
       this.physics.add.collider(coins, platforms);
 
-      
+
 
       // Interaccion Jugador 1 on la moneda
       this.physics.add.overlap(player1, coins, (player1, coin) => {
@@ -297,9 +312,7 @@ const config = {
 
         saveScore();
 
-        setTimeout(() => {
-          router.push({ path: '/score' })
-        }, 15000);
+        showButtons.value = true;
       }
     }
   }
@@ -382,7 +395,7 @@ async function saveScore() {
 
   try {
     const datosPuntaje = {
-      
+
       puntaje: score1.value,
       idUsuario: jugador1.id
     }
