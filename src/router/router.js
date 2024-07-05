@@ -6,6 +6,7 @@ import LoginPage from "../pages/LoginPage.vue";
 import ScorePage from "../pages/ScorePage.vue";
 import LoginPage2 from "../pages/LoginPage2.vue";
 import RegisterPage from "../pages/RegisterPage.vue";
+import ModifyAccountPage from "../pages/ModifyAccountPage.vue";
 
 
 const routes = [
@@ -16,7 +17,7 @@ const routes = [
     {path: "/score", component: ScorePage},
     {path: "/login2", component: LoginPage2},
     {path: "/register", component: RegisterPage},
-    {path: "/modify-account"}
+    {path: "/modify-account", component: ModifyAccountPage}
 ];
 
 
