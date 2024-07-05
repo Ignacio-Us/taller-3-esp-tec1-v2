@@ -41,11 +41,17 @@ import Navbar from '../components/Navbar.vue';
 import { ref } from 'vue';
 import axios from 'axios';
 
-const puntajes = ref([])
+const puntajes = ref([]);
+
+const ordenarPuntajes = () => {
+  puntajes.value.sort((a, b) => b.puntaje - a.puntaje);
+};
 
 try {
     const response = await axios.get(`http://localhost:8081/api/puntajes`);
-    puntajes.value = response.data
+    puntajes.value = response.data;
+
+    ordenarPuntajes();
 } catch (error) {
     console.error('Error al obtener los puntajes', error)
 }
