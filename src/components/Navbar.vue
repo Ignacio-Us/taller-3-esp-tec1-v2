@@ -12,7 +12,8 @@
             <div v-if="showPopover" class="shadow-lg popover">
                 <div class="text-white p-4 bg-custom rounded-3">
                     <p class="text-center">
-                        <RouterLink to="/modify-account" @click="saveId(showPlayerOne.id)" class="btn fw-bold rounded-5" id="btn-option">Modificar
+                        <RouterLink to="/modify-account" @click="saveId(showPlayerOne.id)" class="btn fw-bold rounded-5"
+                            id="btn-option">Modificar
                             perfil</RouterLink>
                     </p>
                     <p class="text-center">
@@ -41,7 +42,8 @@
             <div v-if="showPopover2" class="shadow-lg popover">
                 <div class="text-white p-4 bg-custom rounded-3">
                     <p class="text-center">
-                        <RouterLink to="/modify-account"  @click="saveId(showPlayerTwo.id)" class="btn fw-bold rounded-5" id="btn-option">Modificar
+                        <RouterLink to="/modify-account" @click="saveId(showPlayerTwo.id)" class="btn fw-bold rounded-5"
+                            id="btn-option">Modificar
                             perfil</RouterLink>
                     </p>
                     <p class="text-center">
@@ -93,6 +95,7 @@
 </style>
 
 <script setup>
+import axios from 'axios';
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
@@ -109,5 +112,24 @@ const closeSession = (key) => {
 
 const saveId = (id) => {
     sessionStorage.setItem("idUserToModify", id);
+}
+
+
+if (showPlayerOne) {
+    try {
+        const response1 = await axios.get(`http://localhost:8081/api/usuarios/${showPlayerOne.id}`);
+        showPlayerOne.nombre = response1.data.nombre;
+    } catch (error) {
+        console.error('Error al actualizar los datos del jugador 1', error);
+    }
+}
+
+if (showPlayerTwo) {
+    try {
+        const response2 = await axios.get(`http://localhost:8081/api/usuarios/${showPlayerTwo.id}`);
+        showPlayerTwo.nombre = response2.data.nombre;
+    } catch (error) {
+        console.error('Error al actualizar los datos del jugador 2', error);
+    }
 }
 </script>

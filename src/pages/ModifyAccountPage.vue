@@ -25,7 +25,10 @@
   
   <script>
   import axios from 'axios';
-  
+  import { useRouter } from 'vue-router';
+
+  const router = useRouter();
+
   export default {
     name: 'EditUserPage',
     data() {
@@ -58,6 +61,7 @@
           this.success = true;
           this.success_mensaje = 'Usuario actualizado con éxito.';
           this.error = false;
+          this.$router.push('/');
         } catch (error) {
           console.error(error);
           this.error = true;
@@ -79,8 +83,6 @@
       }
     }
   }
-
-  
 </script>
 <style scoped>
 
