@@ -1,11 +1,26 @@
 <template>
     <nav class="navbar navbar-expand-lg shadow-lg bg-custom">
         <div class="col-md-3 p-2 ml-1">
-            <RouterLink to="/login" v-if="!showPlayerOne" class="btn btn-light fs-5 font-custom">Iniciar Player 1</RouterLink>
+            <RouterLink to="/login" v-if="!showPlayerOne" class="btn btn-light fs-5 font-custom">Iniciar Player 1
+            </RouterLink>
 
-            
             <!--Player 1-->
-            <h5 v-if="showPlayerOne" class="text-white font-custom fs-3">{{ showPlayerOne.nombre }}</h5>
+            <button @click="showPopover = !showPopover" class="bg-custom user">
+                <h5 v-if="showPlayerOne" class="text-white font-custom fs-3">{{ showPlayerOne.nombre }}</h5>
+            </button>
+
+            <div v-if="showPopover" class="shadow-lg popover">
+                <div class="text-white p-4 bg-custom rounded-3">
+                    <p class="text-center">
+                        <RouterLink to="/modify-account" class="btn  fw-bold rounded-5" id="btn-option">Modificar
+                            perfil</RouterLink>
+                    </p>
+                    <p class="text-center">
+                        <button @click="closeSession('usuarioLogeado')" class="btn fw-bold rounded-5"
+                            id="btn-option">Cerrar Sesión</button>
+                    </p>
+                </div>
+            </div>
         </div>
 
         <!--Paginas-->
@@ -15,10 +30,26 @@
             <RouterLink to="/score" class="btn fs-4 text-white  font-custom">Scores</RouterLink>
         </div>
         <div class="col-md-2 p-2 ml-2">
-            <RouterLink  to= "/login2" v-if="!showPlayerTwo" class="btn btn-light fs-5 font-custom">Iniciar Player 2</RouterLink>
-            
+            <RouterLink to="/login2" v-if="!showPlayerTwo" class="btn btn-light fs-5 font-custom">Iniciar Player 2
+            </RouterLink>
+
             <!--Player 2-->
-            <h5 v-if="showPlayerTwo" class="text-white font-custom fs-3">{{ showPlayerTwo.nombre }}</h5>
+            <button @click="showPopover2 = !showPopover2" class="bg-custom user">
+                <h5 v-if="showPlayerTwo" class="text-white font-custom fs-3">{{ showPlayerTwo.nombre }}</h5>
+            </button>
+
+            <div v-if="showPopover2" class="shadow-lg popover">
+                <div class="text-white p-4 bg-custom rounded-3">
+                    <p class="text-center">
+                        <RouterLink to="/modify-account" class="btn fw-bold rounded-5" id="btn-option">Modificar
+                            perfil</RouterLink>
+                    </p>
+                    <p class="text-center">
+                        <button @click="closeSession('usuario2Logeado')" class="btn fw-bold rounded-5"
+                            id="btn-option">Cerrar Sesión</button>
+                    </p>
+                </div>
+            </div>
         </div>
     </nav>
 </template>
@@ -32,7 +63,7 @@
     margin-left: 12px;
 }
 
-.ml-2{
+.ml-2 {
     margin-left: 5%;
 }
 
@@ -44,12 +75,35 @@
     border-radius: 10px;
 }
 
+.user {
+    border: none
+}
+
+#btn-option {
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+}
+
+#btn-option:hover {
+    color: black;
+    width: 100%;
+    height: 100%;
+}
 </style>
 
 <script setup>
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 
-const showPlayerOne = JSON.parse(sessionStorage.getItem('usuarioLogeado')); 
-const showPlayerTwo = JSON.parse(sessionStorage.getItem('usuario2Logeado')); 
+const showPlayerOne = JSON.parse(sessionStorage.getItem('usuarioLogeado'));
+const showPlayerTwo = JSON.parse(sessionStorage.getItem('usuario2Logeado'));
+
+const showPopover = ref(false);
+const showPopover2 = ref(false);
+
+const closeSession = (key) => {
+    sessionStorage.removeItem(key);
+    window.location.reload();
+}
 </script>
