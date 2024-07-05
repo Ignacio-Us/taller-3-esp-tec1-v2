@@ -12,7 +12,7 @@
             <div v-if="showPopover" class="shadow-lg popover">
                 <div class="text-white p-4 bg-custom rounded-3">
                     <p class="text-center">
-                        <RouterLink to="/modify-account" class="btn  fw-bold rounded-5" id="btn-option">Modificar
+                        <RouterLink to="/modify-account" @click="saveId(showPlayerOne.id)" class="btn fw-bold rounded-5" id="btn-option">Modificar
                             perfil</RouterLink>
                     </p>
                     <p class="text-center">
@@ -41,7 +41,7 @@
             <div v-if="showPopover2" class="shadow-lg popover">
                 <div class="text-white p-4 bg-custom rounded-3">
                     <p class="text-center">
-                        <RouterLink to="/modify-account" class="btn fw-bold rounded-5" id="btn-option">Modificar
+                        <RouterLink to="/modify-account"  @click="saveId(showPlayerTwo.id)" class="btn fw-bold rounded-5" id="btn-option">Modificar
                             perfil</RouterLink>
                     </p>
                     <p class="text-center">
@@ -105,5 +105,9 @@ const showPopover2 = ref(false);
 const closeSession = (key) => {
     sessionStorage.removeItem(key);
     window.location.reload();
+}
+
+const saveId = (id) => {
+    sessionStorage.setItem("idUserToModify", id);
 }
 </script>

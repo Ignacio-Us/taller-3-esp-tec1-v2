@@ -54,7 +54,7 @@
             contrasena: parseInt(this.password, 10)
           };
   
-          await axios.put(`http://localhost:8081/api/usuarios/${this.email}`, updatedUser);
+          await axios.put(`http://localhost:8081/api/usuarios/${sessionStorage.getItem("idUserToModify")}`, updatedUser);
           this.success = true;
           this.success_mensaje = 'Usuario actualizado con éxito.';
           this.error = false;
@@ -67,7 +67,7 @@
     },
     async created() {
       try {
-        let response = await axios.get(`http://localhost:8081/api/usuarios/${this.$route.params.email}`);
+        let response = await axios.get(`http://localhost:8081/api/usuarios/${sessionStorage.getItem("idUserToModify")}`);
         let usuario = response.data;
         this.nombre = usuario.nombre;
         this.email = usuario.email;
