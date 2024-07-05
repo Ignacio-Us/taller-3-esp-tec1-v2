@@ -184,7 +184,7 @@ const config = {
 
       this.physics.add.collider(coins, platforms);
 
-   
+      
 
       // Interaccion Jugador 1 on la moneda
       this.physics.add.overlap(player1, coins, (player1, coin) => {
@@ -318,11 +318,39 @@ function addRandomCoin(scene, coins, platforms) {
     const coin = coins.create(x, y, 'coin').setScale(1.5).refreshBody();
     coin.anims.play('spin');
 
+    coin.setInteractive();
+    scene.input.setDraggable(coin);
+
     const overlap = scene.physics.overlap(coin, platforms);
 
     if (!overlap) {
       // Si no hay colisión, colocar la moneda y salir del bucle
       placed = true;
+
+      coin.on('pointerover', function () {
+        this.setTint(0x44ff44);
+      });
+
+      coin.on('pointerout', function () {
+        this.clearTint();
+      });
+
+      coin.on('dragstart', function (pointer) {
+        this.setTint(0xff0000);
+        scene.physics.world.disable(this);
+      });
+
+      coin.on('drag', function (pointer, dragX, dragY) {
+        this.x = dragX;
+        this.y = dragY;
+      });
+
+      coin.on('dragend', function (pointer, dragX, dragY) {
+        this.clearTint();
+        scene.physics.world.enable(this);
+        this.setVelocity(0);
+      });
+
       break;
     } else {
       // Si hay colisión, eliminar la moneda y reintentar
